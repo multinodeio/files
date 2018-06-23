@@ -48,7 +48,7 @@
       }
     ],
     "command": "$CMD",
-    "volumes": ["ipfs"]
+    "volumes": ["/var/local/ipfs/export:/export", "/var/local/ipfs/data:/data/ipfs"]
   },
   {
     "type": "container",
@@ -72,7 +72,7 @@
       }
     ],
     "command": "$CMD",
-    "volumes": ["monero"]
+    "volumes": ["/var/local/monero/:/root/.bitmonero"]
   },
 
 
