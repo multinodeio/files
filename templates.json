@@ -44,13 +44,42 @@
     "env": [
       {
         "name": "CMD",
-        "label": "Command Line",
-        "set": ""
+        "label": "Command Line"
       }
     ],
     "command": "$CMD",
     "volumes": ["ipfs"]
   },
+  {
+    "type": "container",
+    "title": "Monero",
+    "note": "Parameters: <em>null</em>",
+    "restart_policy": "unless-stopped",
+    "hostname": "monero",
+    "description": "Monero is the leading cryptocurrency with a focus on private and censorship-resistant transactions.",
+    "categories": ["chain", "privacy"],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/monero.png",
+    "image": "kannix/monero-full-node",
+    "ports": [
+      "18080/tcp",
+      "18081/tcp"
+    ],
+    "env": [
+      {
+        "name": "CMD",
+        "label": "Command Line"
+      }
+    ],
+    "command": "$CMD",
+    "volumes": ["monero"]
+  },
+
+
+
+
+
+
   {
     "type": "container",
     "title": "Registry",
