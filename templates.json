@@ -48,7 +48,7 @@
       }
     ],
     "command": "$CMD",
-    "volumes": ["/var/local/ipfs/export:/export", "/var/local/ipfs/data:/data/ipfs"]
+    "volumes": ["/export", "/data/ipfs"]
   },
   {
     "type": "container",
