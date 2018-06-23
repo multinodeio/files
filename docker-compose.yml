@@ -72,7 +72,8 @@ ipfs: # docker run -itd --name ipfs --restart=on-failure -p 4001:4001 -p 8080:80
   - "127.0.0.1:8080:8080"
   - "127.0.0.1:5001:5001"
   volumes:
-  - /var/local/ipfs:/data/ipfs
+  - /var/local/ipfs/export:/export
+  - /var/local/ipfs/data:/data/ipfs
   stop_grace_period: 30s
 
 monero:

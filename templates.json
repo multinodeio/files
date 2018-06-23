@@ -9,7 +9,7 @@
     "description": "Ethereum Foundation Client written in Go",
     "categories": ["chain", "light client", "mainnet", "ethereum"],
     "platform": "linux",
-    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/geth.png",
+    "logo": "https://files.multinode.io/templates/geth.png",
     "image": "ethereum/client-go",
     "ports": [ "30303/tcp", "8546/tcp", "8545/tcp" ],
     "volumes": ["/root/.geth"],
@@ -25,7 +25,7 @@
     "description": "IPFS (Inter Planetary File System",
     "categories": ["fs"],
     "platform": "linux",
-    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/ipfs.png",
+    "logo": "https://files.multinode.io/templates/ipfs.png",
     "image": "ipfs/go-ipfs:latest",
     "ports": [ "4001:4001", "8080:8080", "5001:5001" ],
     "volumes": ["/export", "/data/ipfs"],
@@ -41,15 +41,12 @@
     "description": "Monero is the leading cryptocurrency with a focus on private and censorship-resistant transactions.",
     "categories": ["chain", "privacy", "monero"],
     "platform": "linux",
-    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/monero.png",
+    "logo": "https://files.multinode.io/templates/monero.png",
     "image": "kannix/monero-full-node",
     "ports": [ "18080:18080", "18081:18081" ],
     "volumes": ["/root/.bitmonero"],
     "command": ""
   },
-
-
-
   {
     "name": "bitcoin",
     "type": "container",
@@ -60,11 +57,11 @@
     "description": "The King of Coin, the one that started it all, the oldest, most trusted chain, Bitcoin.",
     "categories": ["chain", "bitcoin"],
     "platform": "linux",
-    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/bitcoin.png",
+    "logo": "https://files.multinode.io/templates/bitcoin.png",
     "image": "kylemanna/bitcoind",
     "ports": [ "8333/tcp", "8332/tcp" ],
     "volumes": ["/bitcoin"],
-    "command": "",
+    "command": ""
   },
 
 
