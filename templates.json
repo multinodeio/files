@@ -34,7 +34,7 @@
   {
     "name": "monero",
     "type": "container",
-    "title": "Monero-!",
+    "title": "Moneros",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
     "hostname": "monero",
