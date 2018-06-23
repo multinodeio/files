@@ -28,14 +28,14 @@
   {
     "type": "container",
     "title": "IPFS",
-    "note": "Parameters: <code>--mainnet --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1</code>",
+    "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
-    "hostname": "geth",
-    "description": "Ethereum Foundation Client written in Go",
-    "categories": ["chain", "light client", "mainnet"],
+    "hostname": "ipfs",
+    "description": "IPFS (Inter Planetary File System",
+    "categories": ["fs"],
     "platform": "linux",
-    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/geth.png",
-    "image": "ethereum/client-go",
+    "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/ipfs.png",
+    "image": "ipfs/go-ipfs:latest",
     "ports": [
       "4001/tcp",
       "8080/tcp",
@@ -49,7 +49,7 @@
       }
     ],
     "command": "$CMD",
-    "volumes": ["geth"]
+    "volumes": ["ipfs"]
   },
   {
     "type": "container",
