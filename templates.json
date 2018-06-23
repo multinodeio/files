@@ -12,8 +12,8 @@
     "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/geth.png",
     "image": "ethereum/client-go",
     "ports": [ "30303/tcp", "8546/tcp", "8545/tcp" ],
-    "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1",
-    "volumes": ["geth"]
+    "volumes": ["/root/.geth"],
+    "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
   {
     "name": "ipfs",
@@ -27,14 +27,14 @@
     "platform": "linux",
     "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/ipfs.png",
     "image": "ipfs/go-ipfs:latest",
-    "ports": [ "4001/tcp", "8080/tcp", "5001/tcp" ],
-    "command": "",
-    "volumes": ["/export", "/data/ipfs"]
+    "ports": [ "4001:4001", "8080:8080", "5001:5001" ],
+    "volumes": ["/export", "/data/ipfs"],
+    "command": ""
   },
   {
     "name": "monero",
     "type": "container",
-    "title": "Monero",
+    "title": "Monero-!",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
     "hostname": "monero",
@@ -43,14 +43,17 @@
     "platform": "linux",
     "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/monero.png",
     "image": "kannix/monero-full-node",
-    "ports": [ "18080/tcp", "18081/tcp" ],
-    "command": "",
-    "volumes": ["/root/.bitmonero"]
+    "ports": [ "18080:18080", "18081:18081" ],
+    "volumes": ["/root/.bitmonero"],
+    "command": ""
   },
+
+
+
   {
     "name": "bitcoin",
     "type": "container",
-    "title": "Bitcoin Light Node",
+    "title": "Bitcoin Light Client",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
     "hostname": "bitcoin",
@@ -60,9 +63,11 @@
     "logo": "https://raw.githubusercontent.com/multinodeio/files/master/templates/bitcoin.png",
     "image": "kylemanna/bitcoind",
     "ports": [ "8333/tcp", "8332/tcp" ],
+    "volumes": ["/bitcoin"],
     "command": "",
-    "volumes": ["/bitcoin"]
   },
+
+
 
 
 
