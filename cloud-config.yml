@@ -19,7 +19,7 @@ rancher:
       volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     portainer:
-      # docker run -itd --name portainer --restart=on-failure -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v /var/local/portainer:/root/data --restart on-failure portainer/portainer 
+      # docker run -d --name portainer --restart=on-failure -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --restart on-failure portainer/portainer --logo "https://raw.githubusercontent.com/multinodeio/files/master/mn-portainer-logo.png" --templates https://raw.githubusercontent.com/multinodeio/files/master/templates.json --admin-password '$2y$05$65FBj8ILqYCOsJ.X.xZo1ufoemxMDXnk/xDW4ZBnU1VawImKvadGO'
       name: portainer
       image: portainer/portainer
       privileged: true

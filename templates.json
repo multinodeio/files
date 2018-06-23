@@ -6,7 +6,7 @@
     "restart_policy": "unless-stopped",
     "hostname": "geth",
     "description": "Ethereum Foundation Client written in Go",
-    "categories": ["chain"],
+    "categories": ["chain", "light-client", "mainnet"],
     "platform": "linux",
     "logo": "https://files.multinode.io/templates/geth.png",
     "image": "ethereum/client-go",
