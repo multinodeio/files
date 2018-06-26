@@ -1,5 +1,21 @@
 [
   {
+    "name": "bitcoin",
+    "type": "container",
+    "title": "Bitcoin Light Client",
+    "note": "Parameters: <em>null</em>",
+    "restart_policy": "unless-stopped",
+    "hostname": "bitcoin",
+    "description": "The King of Coin, the one that started it all, the oldest, most trusted chain, Bitcoin.",
+    "categories": ["chain", "bitcoin"],
+    "platform": "linux",
+    "logo": "https://files.multinode.io/templates/bitcoin.png",
+    "image": "kylemanna/bitcoind",
+    "ports": [ "8333/tcp", "8332/tcp" ],
+    "volumes": ["/bitcoin"],
+    "command": ""
+  },
+  {
     "name": "geth-light-client",
     "type": "container",
     "title": "Geth Light Client",
@@ -34,7 +50,7 @@
   {
     "name": "monero",
     "type": "container",
-    "title": "Moneros",
+    "title": "Monero",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
     "hostname": "monero",
@@ -47,24 +63,6 @@
     "volumes": ["/root/.bitmonero"],
     "command": ""
   },
-  {
-    "name": "bitcoin",
-    "type": "container",
-    "title": "Bitcoin Light Client",
-    "note": "Parameters: <em>null</em>",
-    "restart_policy": "unless-stopped",
-    "hostname": "bitcoin",
-    "description": "The King of Coin, the one that started it all, the oldest, most trusted chain, Bitcoin.",
-    "categories": ["chain", "bitcoin"],
-    "platform": "linux",
-    "logo": "https://files.multinode.io/templates/bitcoin.png",
-    "image": "kylemanna/bitcoind",
-    "ports": [ "8333/tcp", "8332/tcp" ],
-    "volumes": ["/bitcoin"],
-    "command": ""
-  },
-
-
 
 
 
