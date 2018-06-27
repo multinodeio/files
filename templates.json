@@ -14,16 +14,27 @@
     "ports": [ "" ],
     "env": [
       {
-        "name": "USER",
-        "label": "Username"
+        "name": "MN_NAME",
+        "label": "Masternode Name"
       },
       {
-        "name": "PASS",
-        "label": "Password"
+        "name": "PUBLIC_IP",
+        "label": "Public IP"
+      },
+      {
+        "name": "PRIV_KEY",
+        "label": "Private Key"
+      },
+      {
+        "name": "COLL_TX_ID",
+        "label": "CollateralTxID"
+      },
+      {
+        "name": "OUTPUT_ID",
+        "label": "Output ID"
       }
     ],
-
-    "command": ""
+    "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
   },
   {
     "name": "bitcoin",
