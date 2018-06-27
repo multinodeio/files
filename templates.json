@@ -1,17 +1,17 @@
 [
   {
-    "name": "multinode-test",
+    "name": "bulwark",
     "type": "container",
-    "title": "Multinode Test",
-    "note": "Parameters: <em>USER</em>, <em>PASS</em>",
+    "title": "Bulwark Masternode",
+    "note": "",
     "restart_policy": "unless-stopped",
-    "hostname": "test",
-    "description": "Test Image",
-    "categories": ["test", "multinode"],
+    "hostname": "bulwark",
+    "description": "Bulwark Masternode",
+    "categories": ["bulwark", "masternode"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/multinode.png",
-    "image": "multinode/test",
-    "ports": [ "" ],
+    "logo": "https://files.multinode.io/templates/bulwark.png",
+    "image": "multinode/bulwark",
+    "ports": [ "52543" ],
     "env": [
       {
         "name": "MN_NAME",
@@ -35,6 +35,31 @@
       }
     ],
     "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
+  },
+  {
+    "name": "multinode-test",
+    "type": "container",
+    "title": "Multinode Test",
+    "note": "Parameters: <em>USER</em>, <em>PASS</em>",
+    "restart_policy": "unless-stopped",
+    "hostname": "test",
+    "description": "Test Image",
+    "categories": ["test", "multinode"],
+    "platform": "linux",
+    "logo": "https://files.multinode.io/templates/multinode.png",
+    "image": "multinode/test",
+    "ports": [ "" ],
+    "env": [
+      {
+        "name": "USER",
+        "label": "Username"
+      },
+      {
+        "name": "PASS",
+        "label": "Password"
+      }
+    ],
+    "command": "echo U: $USER P: $PASS"
   },
   {
     "name": "bitcoin",
