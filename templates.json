@@ -12,6 +12,17 @@
     "logo": "https://files.multinode.io/templates/multinode.png",
     "image": "multinode/test",
     "ports": [ "" ],
+    "env": [
+      {
+        "name": "USER",
+        "label": "Username"
+      },
+      {
+        "name": "PASS",
+        "label": "Password"
+      }
+    ],
+
     "command": ""
   },
   {
