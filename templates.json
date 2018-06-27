@@ -1,5 +1,20 @@
 [
   {
+    "name": "multinode-test",
+    "type": "container",
+    "title": "Multinode Test",
+    "note": "Parameters: <em>USER</em>, <em>PASS</em>",
+    "restart_policy": "unless-stopped",
+    "hostname": "multinode-test",
+    "description": "Test Image",
+    "categories": ["test", "multinode"],
+    "platform": "linux",
+    "logo": "https://files.multinode.io/templates/multinode.png",
+    "image": "multinode/test",
+    "ports": [ "6789" ],
+    "command": ""
+  },
+  {
     "name": "bitcoin",
     "type": "container",
     "title": "Bitcoin Light Client",
