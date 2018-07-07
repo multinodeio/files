@@ -14,6 +14,14 @@
     "ports": [ "52543" ],
     "env": [
       {
+        "name": "RPCUSER",
+        "label": "RPC Username"
+      },
+      {
+        "name": "RPCPASS",
+        "label": "RPC Password"
+      },
+      {
         "name": "MN_NAME",
         "label": "Masternode Name"
       },
@@ -22,8 +30,8 @@
         "label": "Public IP"
       },
       {
-        "name": "PRIV_KEY",
-        "label": "Private Key"
+        "name": "MN_PRIV_KEY",
+        "label": "Masternode Private Key"
       },
       {
         "name": "COLL_TX_ID",
@@ -33,6 +41,9 @@
         "name": "OUTPUT_ID",
         "label": "Output ID"
       }
+    ],
+    "volumes": [
+      { "container": "/app" }
     ],
     "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
   },
