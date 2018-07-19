@@ -28,7 +28,7 @@ rancher:
       volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/local/portainer:/root/data
-      command: -d /root/data --logo "https://multinode.io/s/mn-portainer-logo.png" --templates "https://files.multinode.io/s/templates.json" --admin-password "$2y$05$65FBj8ILqYCOsJ.X.xZo1ufoemxMDXnk/xDW4ZBnU1VawImKvadGO"
+      command: -d /root/data --logo "https://multinode.io/s/mn-portainer-logo.png" --templates "https://raw.githubusercontent.com/multinodeio/files/master/templates.json" --admin-password "$2y$05$65FBj8ILqYCOsJ.X.xZo1ufoemxMDXnk/xDW4ZBnU1VawImKvadGO"
       ports: 
       - 9000:9000
     # tor: # docker run --name tor -it -p 8118:8118 -p 9050:9050 -d -v /var/local/tor/etc:/etc -v /var/local/tor/var/lib/tor:/var/lib/tor -e TORUSER=root dperson/torproxy -b 100
