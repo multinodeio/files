@@ -132,7 +132,7 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/templates/monero.png",
     "image": "kannix/monero-full-node",
-    "ports": [ "18080", "18081" ],
+    "ports": [ "18080/tcp", "18081/tcp" ],
     "volumes": ["/root/.bitmonero"],
     "command": ""
   },
