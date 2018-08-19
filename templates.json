@@ -1,8 +1,7 @@
 [
   {
-    "type": 1,
     "name": "multinode-test",
-    "type": "container",
+    "type": 1,
     "title": "Multinode Test",
     "note": "Parameters: <em>USER</em>, <em>PASS</em>",
     "restart_policy": "unless-stopped",
@@ -26,9 +25,8 @@
     "command": "echo U: $USER P: $PASS"
   },
   {
-    "type": 1,
     "name": "bulwark",
-    "type": "container",
+    "type": 1,
     "title": "Bulwark Masternode",
     "note": "",
     "restart_policy": "unless-stopped",
@@ -38,13 +36,7 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/bulwark.png",
     "image": "multinode/bulwark",
-    "ports": [
-      {
-        "host": 52543,
-        "container": 52543,
-        "protocol": "tcp"
-      }
-    ],
+    "ports": [ "52543:52543/tcp" ],
     "env": [
       {
         "name": "RPCUSER",
@@ -81,9 +73,8 @@
     "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
   },
   {
-    "type": 1,
     "name": "bitcoin",
-    "type": "container",
+    "type": 1,
     "title": "Bitcoin Light Client",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
@@ -93,29 +84,15 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/bitcoin.png",
     "image": "kylemanna/bitcoind",
-    "ports": [
-      {
-        "host": 8333,
-        "container": 8333,
-        "protocol": "tcp"
-      },
-      {
-        "host": 8332,
-        "container": 8332,
-        "protocol": "tcp"
-      }
-    ],
+    "ports": [ "8333:8333/tcp", "8332:8332/tcp" ],
     "volumes": [
-      {
-        "container":"/bitcoin"
-      }
+      { "container": "/bitcoin" }
     ],
     "command": ""
   },
   {
-    "type": 1,
     "name": "geth-light-client",
-    "type": "container",
+    "type": 1,
     "title": "Geth Light Client",
     "note": "Parameters: <code>--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1</code>",
     "restart_policy": "unless-stopped",
@@ -125,34 +102,15 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/geth.png",
     "image": "ethereum/client-go",
-    "ports": [
-      {
-        "host": 30303,
-        "container": 30303,
-        "protocol": "tcp"
-      },
-      {
-        "host": 8546,
-        "container": 8546,
-        "protocol": "tcp"
-      },
-      {
-        "host": 8545,
-        "container": 8545,
-        "protocol": "tcp"
-      }
-    ],
+    "ports": [ "30303:30303/tcp", "8546:8546/tcp", "8545:8545/tcp" ],
     "volumes": [
-      {
-        "container": "/root/.geth"
-      }
+      { "container": "/root/.geth" }
     ],
     "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
   {
-    "type": 1,
     "name": "ipfs",
-    "type": "container",
+    "type": 1,
     "title": "IPFS",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
@@ -162,37 +120,16 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/ipfs.png",
     "image": "ipfs/go-ipfs:latest",
-    "ports": [
-      {
-        "host": 4001,
-        "container": 4001,
-        "protocol": "tcp"
-      },
-      {
-        "host": 8080,
-        "container": 8080,
-        "protocol": "tcp"
-      },
-      {
-        "host": 5001,
-        "container": 5001,
-        "protocol": "tcp"
-      }      
-    ],
+    "ports": [ "4001:4001/tcp", "8080:8080/tcp", "5001:5001/tcp" ],
     "volumes": [
-      {
-        "container": "/export"
-      },
-      {
-        "container": "/data/ipfs"
-      }
+      { "container": "/export", "bind": "/var/local/ipfs/export" },
+      { "container": "/data/ipfs" }
     ],
     "command": ""
   },
   {
-    "type": 1,
     "name": "monero",
-    "type": "container",
+    "type": 1,
     "title": "Monero",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
@@ -202,23 +139,10 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/monero.png",
     "image": "kannix/monero-full-node",
-    "ports": [
-      {
-        "host": 18080,
-        "container": 18080,
-        "protocol": "tcp"
-      },
-      {
-        "host": 18081,
-        "container": 18081,
-        "protocol": "tcp"
-      }
-    ],
+    "ports": [ "18080:18080/tcp", "18081:18081/tcp" ],
     "volumes": [
-      {
-        "container": "/root/.bitmonero"
-      }
+      { "container": "/root/.bitmonero" }
     ],
-    "command": ""
+    "command": "--detach"
   }
 ]
