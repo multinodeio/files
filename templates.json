@@ -1,5 +1,30 @@
 [
   {
+    "name": "multinode-test",
+    "type": "container",
+    "title": "Multinode Test",
+    "note": "Parameters: <em>USER</em>, <em>PASS</em>",
+    "restart_policy": "unless-stopped",
+    "hostname": "test",
+    "description": "Test Image",
+    "categories": ["test", "multinode"],
+    "platform": "linux",
+    "logo": "https://files.multinode.io/images/multinode.png",
+    "image": "multinode/test",
+    "ports": [],
+    "env": [
+      {
+        "name": "USER",
+        "label": "Username"
+      },
+      {
+        "name": "PASS",
+        "label": "Password"
+      }
+    ],
+    "command": "echo U: $USER P: $PASS"
+  },
+  {
     "name": "bulwark",
     "type": "container",
     "title": "Bulwark Masternode",
@@ -52,31 +77,6 @@
       { "container": "/app" }
     ],
     "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
-  },
-  {
-    "name": "multinode-test",
-    "type": "container",
-    "title": "Multinode Test",
-    "note": "Parameters: <em>USER</em>, <em>PASS</em>",
-    "restart_policy": "unless-stopped",
-    "hostname": "test",
-    "description": "Test Image",
-    "categories": ["test", "multinode"],
-    "platform": "linux",
-    "logo": "https://files.multinode.io/images/multinode.png",
-    "image": "multinode/test",
-    "ports": [],
-    "env": [
-      {
-        "name": "USER",
-        "label": "Username"
-      },
-      {
-        "name": "PASS",
-        "label": "Password"
-      }
-    ],
-    "command": "echo U: $USER P: $PASS"
   },
   {
     "name": "bitcoin",
@@ -182,7 +182,6 @@
     "logo": "https://files.multinode.io/images/monero.png",
     "image": "kannix/monero-full-node",
     "ports": [
-      "18080:18080/tcp", "18081:18081/tcp"
       {
         "host": 18080,
         "container": 18080,
