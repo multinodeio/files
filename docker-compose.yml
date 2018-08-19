@@ -76,7 +76,7 @@ ipfs: # docker run -itd --name ipfs --restart=on-failure -p 4001:4001 -p 8080:80
   - /var/local/ipfs/data:/data/ipfs
   stop_grace_period: 30s
 
-monero:
+monero: # docker run -td --restart=always -v /var/data/blockchain-xmr:/root/.bitmonero -p 18080:18080 -p 18081:18081 --name=monerod kannix/monero-full-node
   name: monero
   image: kannix/monero-full-node
   restart: on-failure

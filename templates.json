@@ -9,9 +9,9 @@
     "description": "Bulwark Masternode",
     "categories": ["bulwark", "masternode"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/bulwark.png",
+    "logo": "https://files.multinode.io/images/bulwark.png",
     "image": "multinode/bulwark",
-    "ports": [ "52543" ],
+    "ports": [ "52543:52543/tcp" ],
     "env": [
       {
         "name": "RPCUSER",
@@ -57,7 +57,7 @@
     "description": "Test Image",
     "categories": ["test", "multinode"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/multinode.png",
+    "logo": "https://files.multinode.io/images/multinode.png",
     "image": "multinode/test",
     "ports": [ "" ],
     "env": [
@@ -82,9 +82,9 @@
     "description": "The King of Coin, the one that started it all, the oldest, most trusted chain, Bitcoin.",
     "categories": ["chain", "bitcoin"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/bitcoin.png",
+    "logo": "https://files.multinode.io/images/bitcoin.png",
     "image": "kylemanna/bitcoind",
-    "ports": [ "8333/tcp", "8332/tcp" ],
+    "ports": [ "8333:8333/tcp", "8332:8332/tcp" ],
     "volumes": ["/bitcoin"],
     "command": ""
   },
@@ -98,9 +98,9 @@
     "description": "Ethereum Foundation Client written in Go",
     "categories": ["chain", "light client", "mainnet", "ethereum"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/geth.png",
+    "logo": "https://files.multinode.io/images/geth.png",
     "image": "ethereum/client-go",
-    "ports": [ "30303/tcp", "8546/tcp", "8545/tcp" ],
+    "ports": [ "30303:30303/tcp", "8546:8546/tcp", "8545:8545/tcp" ],
     "volumes": ["/root/.geth"],
     "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
@@ -114,9 +114,9 @@
     "description": "IPFS (Inter Planetary File System",
     "categories": ["fs"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/ipfs.png",
+    "logo": "https://files.multinode.io/images/ipfs.png",
     "image": "ipfs/go-ipfs:latest",
-    "ports": [ "4001/tcp", "8080/tcp", "5001/tcp" ],
+    "ports": [ "4001:4001/tcp", "8080:8080/tcp", "5001:5001/tcp" ],
     "volumes": ["/export", "/data/ipfs"],
     "command": ""
   },
@@ -130,9 +130,9 @@
     "description": "Monero is the leading cryptocurrency with a focus on private and censorship-resistant transactions.",
     "categories": ["chain", "privacy", "monero"],
     "platform": "linux",
-    "logo": "https://files.multinode.io/templates/monero.png",
+    "logo": "https://files.multinode.io/images/monero.png",
     "image": "kannix/monero-full-node",
-    "ports": [ "18080/tcp", "18081/tcp" ],
+    "ports": [ "18080:18080/tcp", "18081:18081/tcp" ],
     "volumes": ["/root/.bitmonero"],
     "command": ""
   },
