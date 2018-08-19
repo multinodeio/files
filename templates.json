@@ -105,7 +105,11 @@
         "protocol": "tcp"
       }
     ],
-    "volumes": ["/bitcoin"],
+    "volumes": [
+      {
+        "container":"/bitcoin"
+      }
+    ],
     "command": ""
   },
   {
@@ -138,7 +142,11 @@
         "protocol": "tcp"
       }
     ],
-    "volumes": ["/root/.geth"],
+    "volumes": [
+      {
+        "container": "/root/.geth"
+      }
+    ],
     "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
   {
@@ -171,7 +179,14 @@
         "protocol": "tcp"
       }      
     ],
-    "volumes": ["/export", "/data/ipfs"],
+    "volumes": [
+      {
+        "container": "/export"
+      },
+      {
+        "container": "/data/ipfs"
+      }
+    ],
     "command": ""
   },
   {
@@ -199,7 +214,11 @@
         "protocol": "tcp"
       }
     ],
-    "volumes": ["/root/.bitmonero"],
+    "volumes": [
+      {
+        "container": "/root/.bitmonero"
+      }
+    ],
     "command": ""
   }
 ]
