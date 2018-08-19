@@ -11,7 +11,13 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/bulwark.png",
     "image": "multinode/bulwark",
-    "ports": [ "52543:52543/tcp" ],
+    "ports": [
+      {
+        "host": 52543,
+        "container": 52543,
+        "protocol": "tcp"
+      }
+    ],
     "env": [
       {
         "name": "RPCUSER",
@@ -59,7 +65,7 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/multinode.png",
     "image": "multinode/test",
-    "ports": [ "" ],
+    "ports": [],
     "env": [
       {
         "name": "USER",
@@ -84,7 +90,18 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/bitcoin.png",
     "image": "kylemanna/bitcoind",
-    "ports": [ "8333:8333/tcp", "8332:8332/tcp" ],
+    "ports": [
+      {
+        "host": 8333,
+        "container": 8333,
+        "protocol": "tcp"
+      },
+      {
+        "host": 8332,
+        "container": 8332,
+        "protocol": "tcp"
+      }
+    ],
     "volumes": ["/bitcoin"],
     "command": ""
   },
@@ -100,7 +117,23 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/geth.png",
     "image": "ethereum/client-go",
-    "ports": [ "30303:30303/tcp", "8546:8546/tcp", "8545:8545/tcp" ],
+    "ports": [
+      {
+        "host": 30303,
+        "container": 30303,
+        "protocol": "tcp"
+      },
+      {
+        "host": 8546,
+        "container": 8546,
+        "protocol": "tcp"
+      },
+      {
+        "host": 8545,
+        "container": 8545,
+        "protocol": "tcp"
+      }
+    ],
     "volumes": ["/root/.geth"],
     "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
@@ -116,7 +149,23 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/ipfs.png",
     "image": "ipfs/go-ipfs:latest",
-    "ports": [ "4001:4001/tcp", "8080:8080/tcp", "5001:5001/tcp" ],
+    "ports": [
+      {
+        "host": 4001,
+        "container": 4001,
+        "protocol": "tcp"
+      },
+      {
+        "host": 8080,
+        "container": 8080,
+        "protocol": "tcp"
+      },
+      {
+        "host": 5001,
+        "container": 5001,
+        "protocol": "tcp"
+      }      
+    ],
     "volumes": ["/export", "/data/ipfs"],
     "command": ""
   },
@@ -132,159 +181,20 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/monero.png",
     "image": "kannix/monero-full-node",
-    "ports": [ "18080:18080/tcp", "18081:18081/tcp" ],
-    "volumes": ["/root/.bitmonero"],
-    "command": ""
-  },
-
-
-
-
-  {
-    "type": "container",
-    "title": "Registry",
-    "description": "Docker image registry",
-    "categories": ["docker"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/registry.png",
-    "image": "registry:latest",
     "ports": [
-      "5000/tcp"
-    ],
-    "volumes": ["/var/lib/registry"]
-  },
-  {
-    "type": "container",
-    "title": "Nginx",
-    "description": "High performance web server",
-    "categories": ["webserver"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/nginx.png",
-    "image": "nginx:latest",
-    "ports": [
-      "80/tcp",
-      "443/tcp"
-    ],
-    "volumes": ["/etc/nginx", "/usr/share/nginx/html"]
-  },
-  {
-    "type": "container",
-    "title": "Httpd",
-    "description": "Open-source HTTP server",
-    "categories": ["webserver"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/httpd.png",
-    "image": "httpd:latest",
-    "ports": [
-      "80/tcp"
-    ],
-    "volumes": ["/usr/local/apache2/htdocs/"]
-  },
-  {
-    "type": "container",
-    "title": "MySQL",
-    "description": "The most popular open-source database",
-    "categories": ["database"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/mysql.png",
-    "image": "mysql:latest",
-    "env": [
+      "18080:18080/tcp", "18081:18081/tcp"
       {
-        "name": "MYSQL_ROOT_PASSWORD",
-        "label": "Root password"
-      }
-    ],
-    "ports": [
-      "3306/tcp"
-    ],
-    "volumes": ["/var/lib/mysql"]
-  },
-  {
-    "type": "container",
-    "title": "MariaDB",
-    "description": "Performance beyond MySQL",
-    "categories": ["database"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/mariadb.png",
-    "image": "mariadb:latest",
-    "env": [
-      {
-        "name": "MYSQL_ROOT_PASSWORD",
-        "label": "Root password"
-      }
-    ],
-    "ports": [
-      "3306/tcp"
-    ],
-    "volumes": ["/var/lib/mysql"]
-  },
-  {
-    "type": "container",
-    "title": "PostgreSQL",
-    "description": "The most advanced open-source database",
-    "categories": ["database"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/postgres.png",
-    "image": "postgres:latest",
-    "env": [
-      {
-        "name": "POSTGRES_USER",
-        "label": "Superuser"
+        "host": 18080,
+        "container": 18080,
+        "protocol": "tcp"
       },
       {
-        "name": "POSTGRES_PASSWORD",
-        "label": "Superuser password"
+        "host": 18081,
+        "container": 18081,
+        "protocol": "tcp"
       }
     ],
-    "ports": [
-      "5432/tcp"
-    ],
-    "volumes": ["/var/lib/postgresql/data"]
-  },
-  {
-    "type": "container",
-    "title": "Mongo",
-    "description": "Open-source document-oriented database",
-    "categories": ["database"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/mongo.png",
-    "image": "mongo:latest",
-    "ports": [
-      "27017/tcp"
-    ],
-    "volumes": ["/data/db"]
-  },
-  {
-    "type": "container",
-    "title": "Gitlab CE",
-    "description": "Open-source end-to-end software development platform",
-    "note": "Default username is <b>root</b>. Check the <a href=\"https://docs.gitlab.com/omnibus/docker/README.html#after-starting-a-container\" target=\"_blank\">Gitlab documentation</a> to get started.",
-    "categories": ["development", "project-management"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/gitlab_ce.png",
-    "image": "gitlab/gitlab-ce:latest",
-    "ports": [
-      "80/tcp",
-      "443/tcp",
-      "22/tcp"
-    ],
-    "volumes": [
-      { "container": "/etc/gitlab" },
-      { "container": "/var/log/gitlab" },
-      { "container": "/var/opt/gitlab" }
-    ]
-  },
-  {
-    "type": "container",
-    "title": "Redis",
-    "description": "Open-source in-memory data structure store",
-    "categories": ["database"],
-    "platform": "linux",
-    "logo": "https://portainer.io/images/logos/redis.png",
-    "image": "redis:latest",
-    "ports": [
-      "6379/tcp"
-    ],
-    "volumes": ["/data"]
+    "volumes": ["/root/.bitmonero"],
+    "command": ""
   }
 ]
