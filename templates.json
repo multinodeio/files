@@ -1,5 +1,6 @@
 [
   {
+    "type": 1,
     "name": "multinode-test",
     "type": "container",
     "title": "Multinode Test",
@@ -25,6 +26,7 @@
     "command": "echo U: $USER P: $PASS"
   },
   {
+    "type": 1,
     "name": "bulwark",
     "type": "container",
     "title": "Bulwark Masternode",
@@ -79,6 +81,7 @@
     "command": "echo install.sh --no-interaction $MN_NAME $PUBLIC_IP $PRIV_KEY $COLL_TX_ID $OUTPUT_ID"
   },
   {
+    "type": 1,
     "name": "bitcoin",
     "type": "container",
     "title": "Bitcoin Light Client",
@@ -106,6 +109,7 @@
     "command": ""
   },
   {
+    "type": 1,
     "name": "geth-light-client",
     "type": "container",
     "title": "Geth Light Client",
@@ -138,6 +142,7 @@
     "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
   },
   {
+    "type": 1,
     "name": "ipfs",
     "type": "container",
     "title": "IPFS",
@@ -170,6 +175,7 @@
     "command": ""
   },
   {
+    "type": 1,
     "name": "monero",
     "type": "container",
     "title": "Monero",
