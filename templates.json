@@ -75,18 +75,35 @@
   {
     "name": "bitcoin",
     "type": 1,
-    "title": "Bitcoin Light Client",
-    "note": "Parameters: <em>null</em>",
+    "title": "Bitcoin Node",
+    "note": "Parameters: -conf=/config/bitcoin.conf -datadir=/data",
     "restart_policy": "unless-stopped",
     "hostname": "bitcoin",
     "description": "The King of Coin, the one that started it all, the oldest, most trusted chain, Bitcoin.",
     "categories": ["chain", "bitcoin"],
     "platform": "linux",
     "logo": "https://files.multinode.io/images/bitcoin.png",
-    "image": "kylemanna/bitcoind",
+    "image": "multinode/bitcoin",
     "ports": [ "8333:8333/tcp", "8332:8332/tcp" ],
     "volumes": [
       { "container": "/bitcoin" }
+    ],
+    "env": [
+      {
+        "name": "PRUNE",
+        "label": "Prune Size",
+        "select": [
+          {
+            "text": "10GB",
+            "value": "9540",
+            "default": true
+          },
+          {
+            "text": "Full Node",
+            "value": "0"
+          }
+        ]
+      }
     ],
     "command": ""
   },
@@ -94,7 +111,7 @@
     "name": "geth-light-client",
     "type": 1,
     "title": "Geth Light Client",
-    "note": "Parameters: <code>--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1</code>",
+    "note": "Parameters: <code>--syncmode=fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 0.0.0.0</code>",
     "restart_policy": "unless-stopped",
     "hostname": "geth",
     "description": "Ethereum Foundation Client written in Go",
@@ -102,11 +119,11 @@
     "platform": "linux",
     "logo": "https://files.multinode.io/images/geth.png",
     "image": "ethereum/client-go",
-    "ports": [ "30303:30303/tcp", "8546:8546/tcp", "8545:8545/tcp" ],
+    "ports": [ "30303:30303/tcp", "30303:30303/udp", "8546:8546/tcp", "8545:8545/tcp" ],
     "volumes": [
       { "container": "/root/.geth" }
     ],
-    "command": "--fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 127.0.0.1"
+    "command": "--syncmode=fast --networkid 0 --nousb --cache 4096 --trie-cache-gens 1024 --rpc --rpcaddr 0.0.0.0"
   },
   {
     "name": "ipfs",
@@ -114,7 +131,7 @@
     "title": "IPFS",
     "note": "Parameters: <em>null</em>",
     "restart_policy": "unless-stopped",
-    "hostname": "ipfs",
+    "name": "ipfs",
     "description": "IPFS (Inter Planetary File System",
     "categories": ["fs"],
     "platform": "linux",
